@@ -429,21 +429,21 @@
               <td></td>
             </tr>
 
-<!--
             <tr>
-              <td>13 Φεβ.</td>
+              <td>14 Φεβ.</td>
               <td>Verilog: Τα βασικά</td>
               <td><a href="lectures/HY220_L2_VerilogBasics.pdf">Slides <span class="glyphicon glyphicon-save" aria-hidden="true"></span></a></td>
               <td></td>
             </tr>
 
             <tr>
-              <td>15 Φεβ.</td>
+              <td>19 Φεβ.</td>
               <td>Verilog: Τα βασικά (συνέχεια...)</td>
-              <td>Slides από 13 Φεβ.</a></td>
+              <td>Slides από 14 Φεβ.</a></td>
               <td></td>
             </tr>
 
+<!--
             <tr>
               <td>20 Φεβ.</td>
               <td>Verilog: Τα βασικά (συνέχεια...)</td>
@@ -634,8 +634,7 @@
         <div class="panel-body">
           <ul> 
             <li>
-              Web-based Verilog Simulation Tools (for small experiments):
-              <br>
+              <h4>Web-based Verilog/SystemVerilog Simulation Tools (for small experiments):</h4>
               <a href="http://www.edaplayground.com/home" target="_new">EDA Playground</a>
               &nbsp;<i>[also Waves (beta) with <a href="http://www.edaplayground.com/w/home" target="_new">EPWave</a>]</i>
               <br>
@@ -644,28 +643,50 @@
             </li>
 
             <li>
-              Open-Source Simulator: <a href="http://iverilog.icarus.com/" target="_new">Icarus Verilog (iverilog)</a> (Linux, MacOS)
+              <h4>Open-Source Verilog/SystemVerilog Simulators: <span class="badge alert-info">Updated</span></h4>
+              <a href="https://www.veripool.org/verilator/" target="_new">Verilator</a> (Linux, MacOS)
+              <br>
+              <a href="https://steveicarus.github.io/iverilog/" target="_new">Icarus Verilog (iverilog)</a> (Linux, MacOS)
+              <br>
               <br>
               <i>
-                Σε πολλές διανομές Linux (π.χ. Ubuntu, Debian, κτλ) το Icarus Verilog υπάρχει στα έτοιμα πακέτα που μπορούν να εγκατασταθούν:
+                Σε πολλές διανομές Linux (π.χ. Ubuntu, Debian, κτλ) ο Verilator και ο Icarus Verilog υπάρχουν στα έτοιμα πακέτα που μπορούν να εγκατασταθούν:
               </i>
-              <pre>sudo apt-get install verilog</pre>
+              <pre>sudo apt-get install verilator<br>sudo apt-get install iverilog</pre>
               <i>
                 Σε MacOS μπορείτε να το εγκαταστήσετε χειροκίνητα ή με package managers όπως το <a href="https://brew.sh/" target="_new">Homebrew:</a>
               </i>
-              <pre>brew install icarus-verilog</pre>
+              <pre>brew install verilator<br>brew install icarus-verilog</pre>
+              <div class="alert alert-warning myalert">
+                <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 
+                Για προσομοίωση με τον <b>Verilator</b> θα πρέπει να έχετε <b>έκδοση >= 5.012</b>, ιδανικά έκδοση >= 5.020 (παλαιότερες εκδόσεις δεν είναι κατάλληλες για το μάθημα).
+                <br>
+                <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 
+                Για προσομοίωση με τον <b>Icarus Verilog</b> θα πρέπει να έχετε <b>έκδοση >= 11</b>, ιδανικά έκδοση >= 12 (παλαιότερες εκδόσεις δεν είναι κατάλληλες για το μάθημα).
+              </div>
               <hr>
             </li>
 
             <li>
-              Open VCD Waveform Viewers: <a href="http://gtkwave.sourceforge.net/" target="_new">GTKWave</a> (Linux, MacOS, Win) ή <a href="http://www.logicpoet.com/scansion/" target="_new">Scansion</a> (MacOS)
+              <h4>Open-Source VCD Waveform Viewers:</h4>
+              <a href="http://gtkwave.sourceforge.net/" target="_new">GTKWave</a> (Linux, MacOS, Win)
+              <br>
               <br>
               <i>
                 Σε πολλές διανομές Linux (π.χ. Ubuntu, Debian, κτλ) το GTKwave υπάρχει στα έτοιμα πακέτα που μπορούν να εγκατασταθούν:
               </i>
               <pre>sudo apt-get install gtkwave</pre>
+
+              <i>
+                Σε MacOS μπορείτε να το εγκαταστήσετε χειροκίνητα ή με package managers όπως το <a href="https://brew.sh/" target="_new">Homebrew:</a>
+              </i>
+              <pre>brew install gtkwave</pre>
+
               <div class="alert alert-warning myalert">
-                <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Για να δείτε κυματομορφές από προσομοιώσεις με iverilog θα πρέπει να γεννήσει η προσομοίωση αρχεία τύπου VCD (Value Change Dump). Για να γεννηθούν VCD αρχεία θα πρέπει απλά να προσθέσετε στο testbench σας τις παρακάτω γραμμές στην αρχή του <code>initial block</code>:
+                <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 
+                Για να δείτε κυματομορφές από προσομοιώσεις θα πρέπει να γεννήσει η προσομοίωση αρχεία τύπου VCD (Value Change Dump). 
+                <br>
+                Για να γεννηθούν VCD αρχεία θα πρέπει απλά να προσθέσετε στο testbench σας τις παρακάτω γραμμές στην αρχή του <code>initial block</code> (αν δεν υπάρχουν ήδη):
               </div>
               <div class="well">
                 <code>initial begin</code><br>
@@ -682,18 +703,29 @@
             </li>
 
             <li>
-              Vivado στα μηχανήματα του Τμήματος (Quick Guide)
-              <pre>cp -r ~hy220/tools/example .<br>cd example<br>source setup.sh</pre>
-              <div class="alert alert-warning myalert">
+              <h4>Προσομοιώσεις Verilog/SystemVerilog στα μηχανήματα του Τμήματος <span class="badge alert-success">New</span></h4>
+              <div class="alert alert-info myalert">
                 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                Για περισσότερες λεπτομέρειες δείτε το README.txt που υπάρχει στο φάκελο example.
+                Υποστηρίζονται τα εξής εργαλεία:
+                <b>
+                <ul>
+                  <li>Verilator (v5.020)</li>
+                  <li>Icarus Verilog (v12)</li>
+                  <li>Xilinx/AMD Vivado (v2018.3)</li>
+                  <li>GTKWave (v3.3.117)</li>
+                </ul>
+                </b>
+              </div>
+              <i>Σύντομος Οδηγός:</i>
+              <pre>cp -r ~hy220/tools/example .<br>cd example<br>source setup.sh<br>export HY220_SIMULATOR=verilator</pre>
+              <div class="alert alert-info myalert">
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                Για περισσότερες λεπτομέρειες δείτε το <b>README.txt</b> που υπάρχει στο φάκελο example.
               </div>
               <i>Προσομοίωση σε command line:</i>
               <pre>make</pre>
               <i>Κυματομορφές μετά απο command line προσομοίωση:</i>
-              <pre>make waves</pre>
-              <i>Προσομοίωση και κυματομορφές με το γραφικό περιβάλλον:</i>
-              <pre>make gui</pre>
+              <pre>make gwaves</pre>
             </li>
           </ul>
         </div>
@@ -940,7 +972,7 @@
 
   <!-- FOOTER -->
   <div class="well well-sm" align="right">
-    <i><b>Last update:</b> 05 February 2024</i> - by V. Papaefstathiou
+    <i><b>Last update:</b> 18 February 2024</i> - by V. Papaefstathiou
   </div>
   <!-- ______________________________________________________________________________________________ -->
 
