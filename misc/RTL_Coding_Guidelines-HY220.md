@@ -55,7 +55,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Put `begin` statements on the same level as the block qualifier (K&R style), for example:
 
-    ```verilog
+    ```systemverilog
     module A (
       input  logic i_flush,
       output logic o_stall
@@ -78,7 +78,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - This also applies to `case` statements.  `begin` and `end` may be omitted iff the entire case item (i.e., the case expression and the statement) fits on a single line.  Use a consistent style within one `case` statement.
 
-    ```verilog
+    ```systemverilog
     unique case (state_q)
       Idle: begin
         state_d = Something;
@@ -96,7 +96,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
     endcase
     ```
 
-    ```verilog
+    ```systemverilog
     unique case (i_stride)
       2'd0: state_d = Idle;
       2'd1: state_d = Bubble;
@@ -107,7 +107,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Use non-blocking assignment `<=` to describe edge-triggered (synchronous) assignments. Moreover, do not put any combinational logic in `always_ff` (the code block should only model flip flops).
 
-    ```verilog
+    ```systemverilog
     always_ff @(posedge clk) begin 
         b_q  <= b_d;
         b_q2 <= b_q;
@@ -116,7 +116,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Use blocking assignment `=` to describe combinational assignments.
 
-    ```verilog
+    ```systemverilog
     always_comb begin 
         b = a;
         c = b;
@@ -127,7 +127,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Name `generate` blocks with `begin : gen_name`. Do not put the name of the generate into a comment after the end; that's redundant. Do not use the `generate` keyword; it's redundant. For example:
 
-    ```verilog
+    ```systemverilog
     for (genvar i=0; i < 10; i++) begin : gen_ten_times
       // something to generate 10x
     end
@@ -142,7 +142,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 -  Name enumerate types with a `_e` suffix and `structs` that are used as types with a `_t` suffix:
 
-    ```verilog
+    ```systemverilog
     typedef enum logic [1:0] { PrivUser, PrivSupervisor, PrivMachine } priv_lvl_e;
     typedef struct packed {
       logic [1:0]  rw;
@@ -150,7 +150,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
       logic  [7:0] address;
     } csr_addr_t;
     ```
-    ```verilog
+    ```systemverilog
     module A (
       input csr_addr_t i_csr_addr
     );
@@ -165,7 +165,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Do not compare single-bit signals to `0` or `1`; that's redundant. Instead simply use the signal and unary logical negation, as in
 
-    ```verilog
+    ```systemverilog
     if (i_valid && !i_ready) begin
       state_d = Stall;
     end
@@ -173,7 +173,7 @@ based on [lowRISC Coding Style Guide](https://github.com/lowRISC/style-guides/bl
 
 - Use *logical* operators in *conditional* statements and *bitwise* operators when assigning signals or ports. For example:
 
-    ```verilog
+    ```systemverilog
     always_comb begin
       cnt_d = cnt_q;
       if (push && !full) begin
